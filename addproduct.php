@@ -33,7 +33,7 @@
                 if (submitButtonDisabled === false) {
                     addProduct(e.target);
                     resetInputClasses();
-                    window.location.replace("/");
+                    window.location.replace("/index");
                 }
             });
         </script>

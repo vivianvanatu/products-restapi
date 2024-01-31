@@ -14,9 +14,12 @@ services:
   mysql:
     image: mysql:latest
     environment:
-      MYSQL_ROOT_PASSWORD: KBk9CuNj4vK4bPUULlqemF
+      MYSQL_ROOT_PASSWORD: secret
       MYSQL_DATABASE: productsrestapi
+      MYSQL_USER: productsrestapi
+      MYSQL_PASSWORD: KBk9CuNj4vK4bPUULlqemF
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./products.sql:/docker-entrypoint-initdb.d/products.sql
     ports:
       - "3310:3306"
