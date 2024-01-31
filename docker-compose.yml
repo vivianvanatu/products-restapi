@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  php-apache:
+    build:
+      context: ./product
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: k1dbyBxNfNn(w1@8
+      MYSQL_DATABASE: scandiweb
+    volumes:
+      - ./product/products.sql:/docker-entrypoint-initdb.d/products.sql
+    ports:
+      - "3306:3306"
