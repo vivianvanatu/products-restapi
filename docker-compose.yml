@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8080:80"
+      - "4300:80"
     depends_on:
       - mysql
 
@@ -17,6 +17,6 @@ services:
       MYSQL_ROOT_PASSWORD: KBk9CuNj4vK4bPUULlqemF
       MYSQL_DATABASE: products-restapi
     volumes:
-      - ./products-restapi/products.sql:/docker-entrypoint-initdb.d/products.sql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
-      - "3306:3306"
+      - "3310:3306"

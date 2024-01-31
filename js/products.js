@@ -1,6 +1,6 @@
           function getProducts() {
             let http = new XMLHttpRequest();
-            let url = "http://localhost/product/get.php"; 
+            let url = "get.php"; 
             http.open("GET", url, true);
             http.send();           
 
