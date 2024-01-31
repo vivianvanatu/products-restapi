@@ -143,20 +143,18 @@
                     
             let http = new XMLHttpRequest();
             http.onreadystatechange = () => {
-                if (http.readyState === 4) {
-                   
+                if (http.readyState === 4) {                   
                     let message = '';
                     if (http.response === 'success') {
                         message = '<div class="alert alert-success"><strong>Success!</strong> Products successfully deleted.</div>';
                     } else {
                         message = '<div class="alert alert-warning"><strong>Fail!</strong> Product could not be deleted.</div>';
                     }
-                    // console.log(http.response);
                     document.getElementById('message').innerHTML = message;
                 }
             }
 
-            http.open("DELETE", "http://localhost/product/saveApi.php", true);
+            http.open("DELETE", "saveApi.php", true);
             http.setRequestHeader("content-type", "application/x-www-form-urlencoded");
             console.log(http);
             http.send(jsonString);

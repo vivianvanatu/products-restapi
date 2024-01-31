@@ -117,19 +117,20 @@ function addProduct(form){
     jsonString = JSON.stringify(addProduct);
     let http = new XMLHttpRequest();
     
-    http.open("POST", "saveApi2.php", true);
+    http.open("POST", "saveApi.php", true);
     http.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     http.send(jsonString);
 
     http.onreadystatechange = () => {
         if (http.readyState === 4) {
         let message = '';
+        console.log(http.response);
         if (http.response === 'success') {
-            //message = '<div class="alert alert-success"><strong>Success!</strong> Product created successfully.</div>';
+            message = '<div class="alert alert-success"><strong>Success!</strong> Product created successfully.</div>';
             document.getElementById("addProductForm").reset();
             displayNone();            
         } else {
-            //message = '<div class="alert alert-warning"><strong>Fail!</strong> Product could not be created.</div>';
+            message = '<div class="alert alert-warning"><strong>Fail!</strong> Product could not be created.</div>';
         }
         document.getElementById('message').innerHTML = message;
         }

@@ -9,7 +9,7 @@
     <navbar class="navibar">
         <div class="logo">PRODUCTS</div>
         <a id="addbtn" class="addbtn" href="addproduct"><i class="fa-solid fa-plus fa-beat"></i> Add</a>
-        <a id="delbtn" class="delbtn disabled" onclick="deleteSelectedProducts()"><i class="fa-solid fa-trash"></i> Mass Delete</a>
+        <a id="delbtn" class="delbtn disabled" onclick="deleteSelectedProducts()"><i class="fa-solid fa-trash"></i> Delete</a>
         <a id="selectAll" class="selbtn" onclick="selectAllProducts()"> Select All</a>
     </navbar>    
     <div class="contain">

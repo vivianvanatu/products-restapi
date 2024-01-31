@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `products` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `sku` varchar(20) NOT NULL,
   `price` int(11) DEFAULT NULL,
@@ -37,8 +37,10 @@ CREATE TABLE `products` (
   `weight` varchar(20) DEFAULT NULL,
   `height` varchar(20) DEFAULT NULL,
   `length` varchar(20) DEFAULT NULL,
-  `width` varchar(20) DEFAULT NULL
+  `width` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 
 --
 -- Eliminarea datelor din tabel `products`
@@ -84,26 +86,20 @@ INSERT INTO `products` (`name`, `sku`, `price`, `productType`, `size`, `weight`,
 
 
 
---
--- Indexuri pentru tabele eliminate
---
 
---
--- Indexuri pentru tabele `products`
---
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`id`);
+-- ALTER TABLE `products`
+--   ADD PRIMARY KEY (`id`);
 
---
--- AUTO_INCREMENT pentru tabele eliminate
---
+-- --
+-- -- AUTO_INCREMENT pentru tabele eliminate
+-- --
 
---
--- AUTO_INCREMENT pentru tabele `products`
---
-ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
-COMMIT;
+-- --
+-- -- AUTO_INCREMENT pentru tabele `products`
+-- --
+-- ALTER TABLE `products`
+--   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+-- COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
