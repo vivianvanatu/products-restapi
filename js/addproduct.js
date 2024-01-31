@@ -66,6 +66,17 @@ const inputPatterns = [
             required: 0
         }
     ];
+function getCurrentFolder () {
+    let currentURL = window.location.href;
+    let pathArray = currentURL.split('/');
+    let currentFolderName = pathArray[pathArray.length - 2];
+    return currentFolderName;   
+}
+function redirectTo(redirUrl) {
+    let currentFolder = getCurrentFolder();
+    let url = "/" + currentFolder + "/" + redirUrl;
+    window.location.replace(url);
+}
 function generateForm(data) {
     let output = '';            
 

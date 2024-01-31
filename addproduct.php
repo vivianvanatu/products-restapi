@@ -11,7 +11,7 @@
 <body onload="generateForm(data)">
     <navbar class="navibar">
         <div class="logo">PRODUCTS</div>
-        <a id="addbtn" class="addbtn active" href="/"><i class="fa-solid fa-home"></i> Products</a>
+        <a id="addbtn" class="addbtn active" onclick="redirectTo('/');"><i class="fa-solid fa-home"></i> Products</a>
         <a id="delbtn" class="delbtn disabled"><i class="fa-solid fa-trash"></i> Mass Delete</a>
         <a id="selectAll" class="selbtn disabled"> Select All</a>
     </navbar>

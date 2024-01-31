@@ -4,6 +4,10 @@
             let currentFolderName = pathArray[pathArray.length - 2];
             return currentFolderName;   
           }
+          function redirectTo(redirUrl) {
+            let currentFolder = getCurrentFolder();
+            let url = "/" + currentFolder + "/" + redirUrl;
+          }
           function getProducts() {
             let currentFolder = getCurrentFolder();
             let http = new XMLHttpRequest();
