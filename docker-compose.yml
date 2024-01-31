@@ -13,8 +13,8 @@ services:
   mysql:
     image: mysql:latest
     environment:
-      MYSQL_ROOT_PASSWORD: k1dbyBxNfNn(w1@8
-      MYSQL_DATABASE: scandiweb
+      MYSQL_ROOT_PASSWORD: KBk9CuNj4vK4bPUULlqemF
+      MYSQL_DATABASE: products-restapi
     volumes:
       - ./product/products.sql:/docker-entrypoint-initdb.d/products.sql
     ports:
