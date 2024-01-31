@@ -1,6 +1,13 @@
+          function getCurrentFolder () {
+            let currentURL = window.location.href;
+            let pathArray = currentURL.split('/');
+            let currentFolderName = pathArray[pathArray.length - 2];
+            return currentFolderName;   
+          }
           function getProducts() {
+            let currentFolder = getCurrentFolder();
             let http = new XMLHttpRequest();
-            let url = "get.php"; 
+            let url = "/" + currentFolder + "/" + "get.php"; 
             http.open("GET", url, true);
             http.send();           
 
@@ -10,11 +17,9 @@
                     if (status === 0 || (status >= 200 && status < 400)) {
                         const allProducts = JSON.parse(this.responseText);
                         displayProducts(allProducts);
-                        // console.log("Loaded Successfully");
                     } else {
                         setInactiveBtn("selectAll");
                         document.getElementById("products").innerHTML = "<p>No products in the database</p>";
-                        // console.log("Error");
                     }
                 }             
                 
