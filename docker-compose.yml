@@ -1,9 +1,10 @@
 version: '3'
 
 services:
-  php-apache:
+  webserver:
+    container_name: Products-RESTapi
     build:
-      context: ./product
+      context: .
       dockerfile: Dockerfile
     ports:
       - "8080:80"
@@ -16,6 +17,6 @@ services:
       MYSQL_ROOT_PASSWORD: KBk9CuNj4vK4bPUULlqemF
       MYSQL_DATABASE: products-restapi
     volumes:
-      - ./product/products.sql:/docker-entrypoint-initdb.d/products.sql
+      - ./products-restapi/products.sql:/docker-entrypoint-initdb.d/products.sql
     ports:
       - "3306:3306"
