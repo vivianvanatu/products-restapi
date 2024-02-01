@@ -10,7 +10,9 @@ class Database extends Config
             $this->conn = new PDO("mysql:host=" . $this->dbhost . ";dbname=" . $this->dbname, $this->dbuser, $this->dbpass);
             $this->conn->exec("set names utf8");
         } catch (PDOException $exception) {
-            echo "Database could not be connected: " . $exception->getMessage();
+            error_log("Database connection failed: " . $exception->getMessage() . " Host: " . $this->dbhost . ", User: " . $this->dbuser . ", Database: " . $this->dbname, 0);
+            // Output a generic error message to the user
+            echo "Database could not be connected. Please try again later.";
         }
         return $this->conn;
     }
