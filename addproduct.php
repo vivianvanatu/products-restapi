@@ -34,7 +34,9 @@
                 if (submitButtonDisabled === false) {
                     addProduct(e.target);
                     resetInputClasses();
-                    window.location.replace(newURL);
+                    setTimeout(() => {
+                        window.location.replace(newURL);
+                    }, 5000);
                 }
             });
         </script>

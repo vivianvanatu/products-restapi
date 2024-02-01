@@ -137,8 +137,11 @@ function addProduct(form){
         let message = '';
         if (http.response === 'success') {
             message = '<div class="alert alert-success"><strong>Success!</strong> Product created successfully.</div>';
-            document.getElementById("addProductForm").reset();
-            displayNone();            
+            setTimeout(() => {
+                document.getElementById("addProductForm").reset();
+                displayNone();            
+            }, 5000);
+            
         } else {
             message = '<div class="alert alert-warning"><strong>Fail!</strong> Product could not be created.</div>';
         }
