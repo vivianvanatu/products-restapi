@@ -1,17 +1,6 @@
-          function getCurrentFolder () {
-            let currentURL = window.location.href;
-            let pathArray = currentURL.split('/');
-            let currentFolderName = pathArray[pathArray.length - 2];
-            return currentFolderName;   
-          }
-          function redirectTo(redirUrl) {
-            let currentFolder = getCurrentFolder();
-            let url = "/" + currentFolder + "/" + redirUrl;
-          }
           function getProducts() {
-            let currentFolder = getCurrentFolder();
             let http = new XMLHttpRequest();
-            let url = "/" + currentFolder + "/" + "get.php"; 
+            let url = "get.php"; 
             http.open("GET", url, true);
             http.send();           
 
