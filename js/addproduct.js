@@ -114,7 +114,7 @@ function generateForm(data) {
     output += `
     <div class="input-group mb-3">
                     <input type="submit" value="Save" id="submit_button" class="btn btn-primary" disabled>
-                    <input value="Cancel" class="btn btn-warning" onclick="location.href='/product'">
+                    <input value="Cancel" class="btn btn-warning" onclick="location.href='/'">
                 </div>
             `;
     document.getElementById("addProductForm").innerHTML = output;
@@ -135,7 +135,6 @@ function addProduct(form){
     http.onreadystatechange = () => {
         if (http.readyState === 4) {
         let message = '';
-        console.log(http.response);
         if (http.response === 'success') {
             message = '<div class="alert alert-success"><strong>Success!</strong> Product created successfully.</div>';
             document.getElementById("addProductForm").reset();

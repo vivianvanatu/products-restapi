@@ -18,7 +18,7 @@
     <div class="container">
         <div class="row pt-5">
             <div class="col-4 add-product-form p-none">
-                <button type="button" class="btn-close float-end p-3" aria-label="Close" href="/"></button>
+                <button type="button" class="btn-close float-end p-3" aria-label="Close" onclick="location.href='/'"></button>
                 <div style="width: 100%; padding: 1rem;">
                     <h3>Add new product</h3>
                 </div>
