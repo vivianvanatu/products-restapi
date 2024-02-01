@@ -136,13 +136,16 @@ function addProduct(form){
         if (http.readyState === 4) {
         let message = '';
         if (http.response === 'success') {
+            console.log(http.response);
             message = '<div class="alert alert-success"><strong>Success!</strong> Product created successfully.</div>';
             setTimeout(() => {
                 document.getElementById("addProductForm").reset();
-                displayNone();            
+                            
             }, 5000);
+            displayNone();
             
         } else {
+            console.log(http.response);
             message = '<div class="alert alert-warning"><strong>Fail!</strong> Product could not be created.</div>';
         }
         document.getElementById('message').innerHTML = message;
