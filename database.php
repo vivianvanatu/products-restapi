@@ -7,7 +7,7 @@ class Database extends Config
     {
         $this->conn = null;
         try {
-            $this->conn = new PDO("mysql:host=" . $this->dbhost . ";dbname=" . $this->dbname, $this->dbuser, $this->dbpass);
+            $this->conn = new PDO("mysql:host=products-restapi-mysql-1;dbname=" . $this->dbname, $this->dbuser, $this->dbpass);
             $this->conn->exec("set names utf8");
         } catch (PDOException $exception) {
             error_log("Database connection failed: " . $exception->getMessage() . " Host: " . $this->dbhost . ", User: " . $this->dbuser . ", Database: " . $this->dbname, 0);
