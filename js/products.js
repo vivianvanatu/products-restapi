@@ -1,4 +1,4 @@
-          function getProducts() {
+        function getProducts() {
             let http = new XMLHttpRequest();
             let url = "get.php"; 
             http.open("GET", url, true);
@@ -7,14 +7,13 @@
             http.onreadystatechange = function() {
                 if (http.readyState === XMLHttpRequest.DONE) {
                     const status = http.status;
+                    
                     if (status === 0 || (status >= 200 && status < 400)) {
                         const allProducts = JSON.parse(this.responseText);
                         displayProducts(allProducts);
-                        // console.log("Loaded Successfully");
                     } else {
                         setInactiveBtn("selectAll");
                         document.getElementById("products").innerHTML = "<p>No products in the database</p>";
-                        // console.log("Error");
                     }
                 }             
                 

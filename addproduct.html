@@ -28,12 +28,17 @@
             </div>
         </div>
         <script>
+            
             document.getElementById("addProductForm").addEventListener("submit", function(e) {
                 e.preventDefault();
+                let currentURL = window.location.href;
+                let pathArray = currentURL.split('/');
+                let currentFolderName = pathArray[pathArray.length - 2];
+                let newURL = '../' + currentFolderName;                
                 if (submitButtonDisabled === false) {
                     addProduct(e.target);
                     resetInputClasses();
-                    window.location.replace("/index");
+                    window.location.replace(newURL);
                 }
             });
         </script>

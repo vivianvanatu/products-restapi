@@ -5,4 +5,5 @@ class Config
 	public $dbuser = 'productsrestapi';
 	public $dbpass = 'KBk9CuNj4vK4bPUULlqemF';
 	public $dbname = 'productsrestapi';
+	public $currentFolderPath = __DIR__;
 }
