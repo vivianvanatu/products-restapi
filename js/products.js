@@ -1,4 +1,13 @@
+        function getCurrentFolder () {
+            let currentURL = window.location.href;
+            //let pathArray = currentURL.split('/');
+            //let currentFolderName = pathArray[pathArray.length - 2];
+            return currentURL;   
+        }
+
         function getProducts() {
+            let currentURL = getCurrentFolder();
+            
             let http = new XMLHttpRequest();
             let url = "get.php"; 
             http.open("GET", url, true);
@@ -88,7 +97,6 @@
                 
                 arrayCb.push(checkboxes[i].id)
             }
-            console.log('arrayCb: ', arrayCb);
             return arrayCb;         
         }
 
@@ -130,7 +138,6 @@
                 prepareConfirmation(title, message, action);
                 triggerConfirmation();
                 const el = document.getElementById("delConfirm");
-                console.log(el);
                 el.addEventListener("click", function(){
                     deleteProducts(deleteIds);
                     getProducts();
@@ -155,7 +162,6 @@
 
             http.open("DELETE", "saveApi.php", true);
             http.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-            console.log(http);
             http.send(jsonString);
         }
         function triggerConfirmation() {            
