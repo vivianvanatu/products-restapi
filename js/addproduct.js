@@ -66,6 +66,17 @@ const inputPatterns = [
             required: 0
         }
     ];
+function getCurrentFolder () {
+    let currentURL = window.location.href;
+    let pathArray = currentURL.split('/');
+    let currentFolderName = pathArray[pathArray.length - 2];
+    return currentFolderName;   
+}
+function redirectTo(redirUrl) {
+    let currentFolder = getCurrentFolder();
+    let url = "/" + currentFolder + "/" + redirUrl;
+    window.location.replace(url);
+}
 function generateForm(data) {
     let output = '';            
 
@@ -103,7 +114,7 @@ function generateForm(data) {
     output += `
     <div class="input-group mb-3">
                     <input type="submit" value="Save" id="submit_button" class="btn btn-primary" disabled>
-                    <input value="Cancel" class="btn btn-warning" onclick="location.href='/product'">
+                    <input value="Cancel" class="btn btn-warning" onclick="location.href='/'">
                 </div>
             `;
     document.getElementById("addProductForm").innerHTML = output;
@@ -124,12 +135,17 @@ function addProduct(form){
     http.onreadystatechange = () => {
         if (http.readyState === 4) {
         let message = '';
-        console.log(http.response);
         if (http.response === 'success') {
+            console.log(http.response);
             message = '<div class="alert alert-success"><strong>Success!</strong> Product created successfully.</div>';
-            document.getElementById("addProductForm").reset();
-            displayNone();            
+            setTimeout(() => {
+                document.getElementById("addProductForm").reset();
+                            
+            }, 5000);
+            displayNone();
+            
         } else {
+            console.log(http.response);
             message = '<div class="alert alert-warning"><strong>Fail!</strong> Product could not be created.</div>';
         }
         document.getElementById('message').innerHTML = message;
